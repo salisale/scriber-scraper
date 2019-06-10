@@ -52,10 +52,10 @@ echo "replacing broken links in homepage..."
 
 for line in `cat $indexfile | grep -E "^<h2><a href=\"\/v.*$" | cut -d '"' -f 2` ; do
 	to_replace="$(echo ${line} | sed 's/\///' | tr '/' '.' | sed -e 's/$/.html/')"
-	#echo $line # v09/n09/john-lanchester/as-a-returning-lord
-	#echo $to_replace # v09.n09.john-lanchester.as-a-returning-lord.html
+	#echo $line # vxx/nxx/fname-lname/xxxx-xx-xxxx
+	#echo $to_replace # vxx.nxx.fname-lname.xxxx-xx-xxxx.html
 	found="$(echo $line | sed 's|/|\\\/|g')"
-	#echo $found # \/v09\/n09\/john-lanchester\/as-a-returning-lord
+	#echo $found # \/vxx\/nxx\/fname-lname\/xxxx-xx-xxxx
 	echo "s/${found}/${to_replace}/" >> $patternfile
 done
 
