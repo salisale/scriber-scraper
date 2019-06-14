@@ -6,7 +6,6 @@ patternfile='patterns.sed' # temp file; sed pattern file
 outfile='Index.html' # with working links
 
 
-
 if [ -z "$1" ] ; then
     echo "please enter a valid URL to/of the contributor's homepage"
     echo "example: 'sh grabcontributor.sh https://xxxxxxxx' "
@@ -35,7 +34,6 @@ for line in `cat $linkfile` ; do
     curl "https://www.lrb.co.uk${line}" > "${outfname}.html"
     #sleep 1
 done
-
 
 
 # start replacing broken links to address to local html files
