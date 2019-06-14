@@ -41,13 +41,6 @@ done
 # start replacing broken links to address to local html files
 # this replaces only article links by the contributor #
 
-if [ -f "$patternfile" ]; then
-	rm -rf $patternfile
-	echo "delete existing 'patterns.sed'"
-else
-	echo "# sed file \n# to replace in Index.html\n" > $patternfile
-fi 
-
 echo "replacing broken links in homepage..."
 
 for line in `cat $indexfile | grep -E "^<h2><a href=\"\/v.*$" | cut -d '"' -f 2` ; do
